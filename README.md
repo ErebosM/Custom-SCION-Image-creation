@@ -22,7 +22,7 @@ chmod +x odroidc1script.sh
 
 ```
 chmod +x systememulation.sh
-./systememulation
+./systememulation.sh
 ```
 
 4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). The last script is about installing SCION and its dependencies.
