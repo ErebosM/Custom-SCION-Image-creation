@@ -39,7 +39,7 @@ sudo su - scion
 5. Finished. If everything went right, we can now shutdown the emulated machine and flash the image to a micro SD-card.
 
 ```
-shutdown -h now
+sudo shutdown -h now
 lsblk
 sudo dd if=image.img of=/dev/XXXX bs=1M
 ```
