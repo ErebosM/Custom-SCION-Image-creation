@@ -15,13 +15,11 @@ cd Custom-SCION-Image-creation
 2. Now run the first script to generate the Ubuntu 16.04 image. It will further prepare and update the image and its packages.
 
 ```
-chmod +x odroidc1script.sh
 ./odroidc1script.sh
 ```
 3. As we have the image without SCION on it, the last step is, to install SCION. To do so, as SCION needs to run Go, we need to emulate the whole system and can't use user mode emulation for it. This next script will load the needed files to do so and starts the emulation.
 
 ```
-chmod +x systememulation.sh
 ./systememulation.sh
 ```
 
