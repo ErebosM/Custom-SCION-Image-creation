@@ -30,7 +30,7 @@ Currently it is only creating an Image for an Odroid C1/C1+.
     ./systememulation.sh
     ```
 
-4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). The last script will install SCION and its dependencies.
+4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). This last script will install SCION and its dependencies.
 
     <b>TODO:</b> Before running the script, you have to change the file `env/deps/pip3/requirements.txt` to this commit of the main scion repository 4edac7803665993e87daa7d996840089b07a5fef (you can also try to cherry-pick)
 
