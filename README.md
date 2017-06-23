@@ -46,5 +46,6 @@ Currently it is only creating an Image for an Odroid C1/C1+.
     ```
     sudo shutdown -h now
     lsblk
+    cd ubuntu
     sudo dd if=image.img of=/dev/XXXX bs=1M
     ```
