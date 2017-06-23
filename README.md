@@ -17,6 +17,13 @@ cd Custom-SCION-Image-creation
 ```
 ./odroidc1script.sh
 ```
+
+  > There are three user interactions when running this script:
+   > - choosing the keyboard layout
+   > - choosing the configuration (UTF-8)
+   > - choosing if you want to keep the modified file (keep modified)
+
+
 3. As we have the image without SCION on it, the last step is, to install SCION. To do so, as SCION needs to run Go, we need to emulate the whole system and can't use user mode emulation for it. This next script will load the needed files to do so and starts the emulation.
 
 ```
