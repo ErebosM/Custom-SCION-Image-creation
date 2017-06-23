@@ -3,6 +3,10 @@
 
 set -e
 
+sudo apt-get install qemu-system-arm
+
+cd ubuntu
+
 wget --continue https://releases.linaro.org/ubuntu/boards/lsk-vexpress/15.07/lsk-vexpress-vivid_nano_20150725-725.img.gz
 gunzip lsk-vexpress-vivid_nano_20150725-725.img.gz
 

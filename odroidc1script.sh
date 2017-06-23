@@ -11,7 +11,7 @@ sudo apt-get -y install debootstrap qemu-user-static
 # Work folder
 # Create a workspace
 
-mkdir ~/ubuntu
+mkdir ubuntu
 cd ubuntu
 export ubuntu=`pwd`
 
