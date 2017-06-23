@@ -25,7 +25,7 @@ chmod +x systememulation.sh
 ./systememulation.sh
 ```
 
-4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). The last script is about installing SCION and its dependencies.
+4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). The last script will install SCION and its dependencies.
 
 TODO: Before running the script, you have to change the file `env/deps/pip3/requirements.txt` to this commit of the main scion repository 4edac7803665993e87daa7d996840089b07a5fef (you can also try to cherry-pick)
 
