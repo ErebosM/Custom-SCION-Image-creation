@@ -47,6 +47,5 @@ cp web_scion/settings/private.dist.py web_scion/settings/private.py
 ./manage.py migrate
 python3 ./scripts/reload_data.py users
 
-sed -i -e 's/"http://127.0.0.1:8080"/"https://coord.scionproto.net"/g' ad_manager/util/defines.py
-
+sed -i -e 's|http://127.0.0.1:8080|https://coord.scionproto.net|g' ad_manager/util/defines.py
 
