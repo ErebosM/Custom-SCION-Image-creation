@@ -40,6 +40,8 @@ echo
 echo w
 ) | fdisk image.img
 
+#If not set, there can be an error with fdisk not finished yet
+
 sleep 20
 
 # Setup loopback and format the partitions.
@@ -73,9 +75,9 @@ sudo cp /usr/bin/qemu-arm-static target/usr/bin
 sudo debootstrap --variant=buildd --arch armhf xenial target http://ports.ubuntu.com
 
 # Preparations via chroot
-# Will add hardkernel keys and repositories, fix ubuntu respository list and install the basic set of tools for a minimal image
 
-echo "#!bin/bash
+
+AN_FRONTEND=noninteractive DEBIAN_FRONTEND=noninteractive echo "#!bin/bash
 set -e
 cat << EOF > /etc/apt/sources.list
 deb http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
@@ -96,13 +98,13 @@ deb-src http://ports.ubuntu.com/ubuntu-ports/ xenial-security multiverse
 EOF
 
 apt-get -y update
-apt-get -y install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" install software-properties-common u-boot-tools isc-dhcp-client ubuntu-minimal ssh
 
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D986B59D
 echo "deb http://deb.odroid.in/c1/ xenial main" > /etc/apt/sources.list.d/odroid.list
 apt-get -y update
 
-apt-get -y install linux-image-c1 bootini
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" install linux-image-c1 bootini
 
 # At this point.. You'll have several errors, That's fine.
 # You can ignore it right now.
@@ -138,9 +140,9 @@ mkhomedir_helper scion
 cp setupdevice.sh /home/scion
 chown -R scion: home/scion
 
-apt-get -y install u-boot
-apt-get -y update
-apt-get -y upgrade
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" install u-boot
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" update
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" upgrade
 
 
 chage -d 0 root
@@ -176,6 +178,8 @@ sudo umount target/media/boot
 sudo umount target/dev/pts
 sudo umount target/proc
 sudo umount target/sys
+#If sleep not set, there is an error with umount target - target is busy
+sleep 20
 sudo umount target
 sudo sync
 sudo losetup -d /dev/loop0
