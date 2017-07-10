@@ -77,7 +77,7 @@ sudo debootstrap --variant=buildd --arch armhf xenial target http://ports.ubuntu
 # Preparations via chroot
 
 
-AN_FRONTEND=noninteractive DEBIAN_FRONTEND=noninteractive echo "#!bin/bash
+echo "#!bin/bash
 set -e
 cat << EOF > /etc/apt/sources.list
 deb http://ports.ubuntu.com/ubuntu-ports/ xenial main universe restricted
@@ -184,4 +184,4 @@ sudo umount target
 sudo sync
 sudo losetup -d /dev/loop0
 
-
+./systememulation.sh
