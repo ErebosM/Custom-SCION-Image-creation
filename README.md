@@ -12,7 +12,7 @@ Currently it is only creating an Image for an Odroid C1/C1+.
     cd Custom-SCION-Image-creation
     ```
 
-2. Now run the first script to generate the Ubuntu 16.04 image. It will further prepare and update the image and its packages. After that, it will start the systememulation script.
+2. Now run the first script to generate the Ubuntu 16.04 image. It will further prepare and update the image and its packages. After that, the systememulation script will automatically be called.
   
     ```
     ./odroidc1script.sh
