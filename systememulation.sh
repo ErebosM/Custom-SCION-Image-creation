@@ -3,6 +3,8 @@
 
 set -e
 
+IMAGE=$1
+
 sudo apt-get install qemu-system-arm
 
 cd ubuntu
@@ -21,7 +23,7 @@ sudo umount temp
 rmdir temp
 
 qemu-system-arm -M vexpress-a15 -cpu cortex-a15 -m 512 -nographic \
-	-kernel kernel -initrd initrd -dtb v2p-ca15-tc1.dtb -sd image.img \
+	-kernel kernel -initrd initrd -dtb v2p-ca15-tc1.dtb -sd ${IMAGE} \
 -append "root=/dev/mmcblk0p2 rw mem=512M raid=noautodetect console=ttyAMA0 rootwait devtmpfs.mount=0"
 
 

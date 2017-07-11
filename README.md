@@ -18,7 +18,7 @@ Currently it is only creating an Image for an Odroid C1/C1+.
     ./odroidc1script.sh
     ```
 
-4. Log in as root. The password is "odroid" (Will automatically forces the user to change it after first boot). This last script will install SCION and its dependencies.
+4. Log in as root. The password is "odroid" (Will automatically force the user to change the password when booting the system the first time). This last script will install SCION and its dependencies.
 
     ```
     sudo su - scion

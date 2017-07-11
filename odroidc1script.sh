@@ -104,7 +104,8 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D986B59D
 echo "deb http://deb.odroid.in/c1/ xenial main" > /etc/apt/sources.list.d/odroid.list
 apt-get -y update
 
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" install linux-image-c1 bootini
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" install dialog
+DEBIAN_FRONTEND=noninteractive apt-get -y install linux-image-c1 bootini
 
 # At this point.. You'll have several errors, That's fine.
 # You can ignore it right now.
@@ -140,9 +141,9 @@ mkhomedir_helper scion
 cp setupdevice.sh /home/scion
 chown -R scion: home/scion
 
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" install u-boot
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" update
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confold" upgrade
+DEBIAN_FRONTEND=noninteractive apt-get -y install u-boot
+DEBIAN_FRONTEND=noninteractive apt-get -y update
+DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 
 chage -d 0 root
@@ -184,4 +185,4 @@ sudo umount target
 sudo sync
 sudo losetup -d /dev/loop0
 
-./systememulation.sh
+../systememulation.sh image.img
